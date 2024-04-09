@@ -11,7 +11,7 @@ class ProductPage(BasePage):
     def book_name(self):
         book_name = self.browser.find_element(*AddBooktotheBasket.BOOKNAME)
         success_message = self.browser.find_element(*AddBooktotheBasket.SUCCESSMESSAGE)
-        assert book_name.text in success_message.text, \
+        assert book_name.text == success_message.text, \
             f"Выбрана не та книга. Имя книги: {book_name.text}, а в сообщении указано: {success_message.text}"
 
     def items_in_basket(self):
