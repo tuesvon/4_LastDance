@@ -1,5 +1,3 @@
-import time
-
 from pages.product_page import ProductPage
 
 
