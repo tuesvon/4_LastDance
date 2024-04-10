@@ -1,5 +1,8 @@
 from .base_page import BasePage
 from .locators import AddBooktotheBasket
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
 
 class ProductPage(BasePage):
@@ -23,3 +26,25 @@ class ProductPage(BasePage):
         assert book_price.text == total_price.text, \
             f"Что-то пошло не так. Цена одной книги: {book_price.text}, а общая сумма: {total_price.text}"
 
+    def is_not_element_present(self, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout).until(
+                EC.presence_of_element_located(AddBooktotheBasket.SUCCESSMESSAGE)
+            )
+        except TimeoutException:
+            return True
+        return False
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(), "Сообщение отображается, хотя не должно"
+
+    def is_disappeared(self, timeout=4):
+        try:
+            (WebDriverWait(self.browser, timeout,1, TimeoutException).
+             until_not(EC.presence_of_element_located(AddBooktotheBasket.SUCCESSMESSAGE)))
+        except TimeoutException:
+            return False
+        return True
+
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(), "Сообщение отображается"
