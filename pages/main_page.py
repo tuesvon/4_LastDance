@@ -10,7 +10,7 @@ class MainPage(BasePage):
         return LoginPage(browser=self.browser, url=self.browser.current_url)
 
     def should_be_login_link(self):
-        assert self.browser.find_element(*MainPageLocators.LOGIN_LINK), "login link is not presented"
+        assert self.browser.find_element(*MainPageLocators.LOGIN_LINK), "Ссылка на ЛК отсутствует"
 
     def __init__(self, *args, **kwargs):
         super(MainPage, self).__init__(*args, **kwargs)
