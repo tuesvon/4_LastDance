@@ -1,12 +1,15 @@
 from selenium.webdriver.common.by import By
 
+
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     REG_LINK = (By.CSS_SELECTOR, "#registration_link")
 
+
 class LoginPageLocators():
     SIGN_IN_FORM = (By.CSS_SELECTOR, "#login_form")
     REG_FORM = (By.CSS_SELECTOR, "#register_form")
+
 
 class AddBooktotheBasket():
     ADDBOOK = (By.CSS_SELECTOR, "#add_to_basket_form > button")
@@ -17,6 +20,14 @@ class AddBooktotheBasket():
                                       "div.basket-mini.pull-right.hidden-xs > span > a")
     TOTALBASKETPRICE = (By.CSS_SELECTOR, "#basket_formset > div > div > div:nth-child(5) > p")
 
+
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET_BTN = (By.CSS_SELECTOR, "#default > header > div.page_inner > div > "
+                                        "div.basket-mini.pull-right.hidden-xs > span > a")
+
+
+class BasketPageLocators():
+    NO_ITEMS_IN_THE_BASKET = (By.CSS_SELECTOR, "#content_inner > div.form-group.clearfix > div > div > a")
+    BASKET_IS_EMPTY = (By.CSS_SELECTOR, "#content_inner")

@@ -21,7 +21,9 @@ class ProductPage(BasePage):
         assert self.browser.find_element(*AddBooktotheBasket.ITEMSINBASKET), "Нет кнопки просмотра корзины"
         gotobasketbtn = self.browser.find_element(*AddBooktotheBasket.ITEMSINBASKET)
         gotobasketbtn.click()
-        book_price = self.browser.find_element(*AddBooktotheBasket.TOTALBASKETPRICE)
+
+    def item_price_and_total_price_are_the_same(self):
+        book_price = self.browser.find_element(*AddBooktotheBasket.BOOKPRICE)
         total_price = self.browser.find_element(*AddBooktotheBasket.TOTALBASKETPRICE)
         assert book_price.text == total_price.text, \
             f"Что-то пошло не так. Цена одной книги: {book_price.text}, а общая сумма: {total_price.text}"

@@ -2,6 +2,8 @@ from .locators import BasePageLocators
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
 import math
+
+
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -38,3 +40,7 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Отсутствует ссылка на вход в ЛК"
+
+    def go_to_basket_from_main_page(self):
+        view_basket_btn = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BTN)
+        view_basket_btn.click()
