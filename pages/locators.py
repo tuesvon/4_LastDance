@@ -16,3 +16,7 @@ class AddBooktotheBasket():
     ITEMSINBASKET = (By.CSS_SELECTOR, "#default > header > div.page_inner > div > "
                                       "div.basket-mini.pull-right.hidden-xs > span > a")
     TOTALBASKETPRICE = (By.CSS_SELECTOR, "#basket_formset > div > div > div:nth-child(5) > p")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

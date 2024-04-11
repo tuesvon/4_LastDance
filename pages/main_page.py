@@ -11,3 +11,6 @@ class MainPage(BasePage):
 
     def should_be_login_link(self):
         assert self.browser.find_element(*MainPageLocators.LOGIN_LINK), "login link is not presented"
+
+    def __init__(self, *args, **kwargs):
+        super(MainPage, self).__init__(*args, **kwargs)
