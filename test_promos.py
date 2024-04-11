@@ -7,7 +7,6 @@ import pytest
 def test_guest_can_add_product_to_basket(browser, offer):
     link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{offer}"
     page = ProductPage(browser, link)
-    print(link)
     page.open()
     page.should_add_item_to_the_basket()
     page.solve_quiz_get_code()

@@ -4,7 +4,7 @@ from pages.login_page import LoginPage
 import pytest
 import time
 
-@pytest.mark.new
+
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
@@ -36,6 +36,7 @@ class TestUserAddToBasketFromProductPage():
         page.item_price_and_total_price_are_the_same()
 
 
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
     page = ProductPage(browser, link)
