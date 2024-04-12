@@ -25,6 +25,7 @@ class TestUserAddToBasketFromProductPage():
         basket_page.should_be_no_items_in_the_basket()
         basket_page.your_basket_is_empty_text()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
         page = ProductPage(browser, link)
